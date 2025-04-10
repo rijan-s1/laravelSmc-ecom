@@ -19,8 +19,8 @@
         <div class="bg-gray-100 shadow-md w-52 h-screen">
             <img src="{{asset('logo.png')}}" alt="LOGO" class="w-36 mt-5 mx-auto ">
             <div class="mt-4 grid text-lg ">
-            <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Dashboard</a>
-            <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Categories</a>
+            <a href="{{route('dashboard')}}" class="pl-4 hover:bg-gray-200 py-2 border-b">Dashboard</a>
+            <a href="{{route('category.index')}}" class="pl-4 hover:bg-gray-200 py-2 border-b">Categories</a>
             <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Products</a>
             <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Orders</a>
             <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Logout</a>
