@@ -11,8 +11,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+//category
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+//cretae category
+Route::get('/category/create',[CategoryController::class,'create'])->name ('category.create');
 
 
 Route::middleware('auth')->group(function () {
