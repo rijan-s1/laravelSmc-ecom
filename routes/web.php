@@ -15,6 +15,7 @@ Route::get('/dashboard', function () {
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 //cretae category
 Route::get('/category/create',[CategoryController::class,'create'])->name ('category.create');
+Route::post('*category/store',[CategoryController::class,'store'])->name ('category.store');
 
 
 Route::middleware('auth')->group(function () {

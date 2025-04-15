@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Create Category')
 @section ('content')
-<form action="" method="POST">
+<form action="{{route('category.store')}}" method="POST">
+    @csrf
     <input type="text" name="priority" placeholder="Priority" class="border border-gray-300 p-2 rounded-lg mb-4 w-full">
     <input type="text" name="name" placeholder="Category Name" class="border border-gray-300 p-2 rounded-lg mb-4 w-full">
     <div class="flex justify-center gap-4">
