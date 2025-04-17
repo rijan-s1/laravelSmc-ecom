@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        return view('category.index');
+        $categories = Category::orderBy('priority','asc')->get();
+        return view('category.index',compact('categories'));
     }
     public function create(){
         return view('category.create');
@@ -19,7 +20,7 @@ class CategoryController extends Controller
             'priority'=>'required|integer|gt:0',
         ]);
         Category::create($data);
-        dd('created');
+        return redirect()->route('category.index');
 
     }
 
