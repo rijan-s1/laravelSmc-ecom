@@ -15,7 +15,7 @@
     <td class="p-3 border">{{$category->priority}}</td>
     <td class="p-3 border">{{ $category->name }}</td>
     <td class="p-3 border">
-        <a href="" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Edit</a>
+        <a href="{{route('category.edit',$category->id)}}" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Edit</a>
         <a href="" class="bg-red-600 text-white px-4 py-2 rounded-lg">Delete</a>
     </td>
     </tr>

@@ -3,11 +3,11 @@
 @section ('content')
 <form action="{{route('category.store')}}" method="POST">
     @csrf
-    <input type="text" name="priority" placeholder="Priority" class="border border-gray-300 p-2 rounded-lg mb-4 w-full">
+    <input type="text" name="priority" placeholder="Priority" class="border border-gray-300 p-2 rounded-lg mb-4 w-full" value="{{old('priority')}}">
     @error('priority')
     <p class="text-red-500 text-sm mb-2 -mt-4">{{$message}}</p>
     @enderror
-    <input type="text" name="name" placeholder="Category Name" class="border border-gray-300 p-2 rounded-lg mb-4 w-full">
+    <input type="text" name="name" placeholder="Category Name" class="border border-gray-300 p-2 rounded-lg mb-4 w-full" value="{{old('name')}}">
     @error('name')
     <p class="text-red-500 text-sm mb-2 -mt-4">{{$message}}</p>
     @enderror
