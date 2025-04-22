@@ -23,7 +23,10 @@
             <a href="{{route('category.index')}}" class="pl-4 hover:bg-gray-200 py-2 border-b">Categories</a>
             <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Products</a>
             <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Orders</a>
-            <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Logout</a>
+            <form action="{{route('logout')}}" method="post" class="pl-4 hover:bg-gray-200" >
+                @csrf
+                <button type="submit" class="w-full text-left py-2 border-b">Logout</button>
+            </form>
             </div>
         </div>
         <div class="p-4 flex-1">
