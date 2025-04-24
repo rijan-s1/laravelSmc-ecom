@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ Route::post('*category/store',[CategoryController::class,'store'])->name ('categ
 Route::get('/category/{id}/edit',[CategoryController::class,'edit'])->name ('category.edit');
 Route::post('/category/{id}/update',[CategoryController::class,'update'])->name ('category.update');
 Route::post('/category/destroy',[CategoryController::class,'destroy'])->name ('category.destroy');
+//product route
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 });
 
 Route::middleware('auth')->group(function () {

@@ -21,7 +21,7 @@
             <div class="mt-4 grid text-lg ">
             <a href="{{route('dashboard')}}" class="pl-4 hover:bg-gray-200 py-2 border-b">Dashboard</a>
             <a href="{{route('category.index')}}" class="pl-4 hover:bg-gray-200 py-2 border-b">Categories</a>
-            <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Products</a>
+            <a href="{{route('product.index')}}" class="pl-4 hover:bg-gray-200 py-2 border-b">Products</a>
             <a href="" class="pl-4 hover:bg-gray-200 py-2 border-b">Orders</a>
             <form action="{{route('logout')}}" method="post" class="pl-4 hover:bg-gray-200" >
                 @csrf
