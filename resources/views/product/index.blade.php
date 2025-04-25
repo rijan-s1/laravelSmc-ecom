@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex justify-between mb-4">
     <h1 class="text-2xl font-bold">Products</h1>
-    <a href="" class="bg-blue-500 text-white px-4 py-2 rounded">Add Product</a>
+    <a href="{{route('product.create')}}" class="bg-blue-500 text-white px-4 py-2 rounded">Add Product</a>
 </div>
 <table class="w-full">
     <tr class="bg-gray-200">
@@ -24,7 +24,7 @@
         <td class="p-3 border">800</td>
         <td class="p-3 border">5</td>
         <td class="p-3 border">elec</td>
-        <td class="p-3 border">sdit delete</td>
+        <td class="p-3 border">edit delete</td>
 
     </tr>
 

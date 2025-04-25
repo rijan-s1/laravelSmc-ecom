@@ -23,6 +23,8 @@ Route::post('/category/destroy',[CategoryController::class,'destroy'])->name ('c
 //product route
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 });
+Route::get('/product/create',[ProductController::class,'create'])->name ('product.create');
+Route::post('/product/store',[ProductController::class,'store'])->name ('product.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
