@@ -16,17 +16,17 @@
         <th class="p-3 border border-gray-300">Category</th>
         <th class="p-3 border border-gray-300">Action</th>
     </tr>
+    @foreach ($products as $product )
     <tr class="text-center">
-        <td class="p-3 border">Images</td>
-        <td class="p-3 border">Product Name</td>
-        <td class="p-3 border">Product</td>
-        <td class="p-3 border">100</td>
-        <td class="p-3 border">800</td>
-        <td class="p-3 border">5</td>
-        <td class="p-3 border">elec</td>
+        <td class="p-3 border"><img src="{{asset('images/'.$product->photopath)}}" alt="" class="h-16 mx-auto"></td>
+        <td class="p-3 border">{{$product->name}}</td>
+        <td class="p-3 border">{{$product->description}}</td>
+        <td class="p-3 border">{{$product->price}}</td>
+        <td class="p-3 border">{{$product->discounted_price}}</td>
+        <td class="p-3 border">{{$product->stock}}</td>
+        <td class="p-3 border">{{$product->category->name}}</td>
         <td class="p-3 border">edit delete</td>
-
     </tr>
-
+    @endforeach
 </table>
 @endsection('content')

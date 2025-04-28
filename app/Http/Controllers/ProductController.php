@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|alpha',
             'category_id' => 'required',
             'price' => 'required|numeric|min:0',
             'discounted_price' => 'nullable|numeric|lt:price',
