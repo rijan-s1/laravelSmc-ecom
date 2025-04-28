@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('product.index');
+        $products = Product::all();
+        return view('product.index',compact('products'));
     }
     public function create()
     {
@@ -23,7 +24,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'category_id' => 'required',
-            'price' => 'required|numeric|min0',
+            'price' => 'required|numeric|min:0',
             'discounted_price' => 'nullable|numeric|lt:price',
             'description' => 'required',
             'stock' => 'required|integer|min:0',
