@@ -4,7 +4,7 @@
 <div class="grid grid-cols-3 gap-5 ">
     <div class="bg-blue-100 p-4 rounded-lg shadow-md">
         <h2 class="text-xl font-semibold">Total Products</h2>
-        <p class="text-3xl font-bold">150</p>
+        <p class="text-3xl font-bold">{{$totalproducts}}</p>
     </div>
     <div class="bg-red-100 p-4 rounded-lg shadow-md">
         <h2 class="text-xl font-semibold">Pending Orders</h2>

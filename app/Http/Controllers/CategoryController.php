@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
     public function store(Request $request){
         $data =$request-> validate([
-            'name'=>'required|alpha',
+            'name'=>'required|string',
             'priority'=>'required|integer|gt:0|unique:categories,priority',
         ]);
         Category::create($data);
