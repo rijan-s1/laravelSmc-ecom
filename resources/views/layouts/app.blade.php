@@ -15,6 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        @include('layouts.alert')
       <div class="flex">
         <div class="bg-gray-100 shadow-md w-52 h-screen">
             <img src="{{asset('logo.png')}}" alt="LOGO" class="w-36 mt-5 mx-auto ">
