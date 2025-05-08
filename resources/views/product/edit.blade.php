@@ -6,7 +6,9 @@
         <select name="category_id" type="text"
             class="border border-gray-300 p-2 rounded-lg w-full mb-4">
             @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}"
+                    @if ($category->id == $product->category_id) selected @endif
+                    >{{ $category->name }}</option>
             @endforeach
 
 

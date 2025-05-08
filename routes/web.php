@@ -7,10 +7,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/',[PagesController::class,'home'])->name('home');
+Route::get('/categoryproducts/{catid}',[PagesController::class,'categoryproducts'])->name('categoryproducts');
+Route::get('/viewproduct/{id}',[PagesController::class,'viewproduct'])->name('viewproduct');
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {

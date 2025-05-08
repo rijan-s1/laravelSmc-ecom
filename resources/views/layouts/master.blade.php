@@ -15,12 +15,13 @@
             $categories = \App\Models\Category::orderBy('priority','asc')->get();
         @endphp
         @foreach ($categories as $category)
-<a href="" class="text-gray-600">{{$category->name}}</a>
+<a href="{{route('categoryproducts',$category->id)}}" class="text-gray-600">{{$category->name}}</a>
         @endforeach
         <a href="{{route('login')}}" class="text-gray-600">Login</a>
     </div>
    </nav>
-   @yield('content')
+   <div class="mx-12">@yield('content')</div>
+
    <footer class="bg-blue-800 text-white text-center py-4 mt-10" >
     <p>&copy; 2025 SMC | All Rights Reserved</p>
 
