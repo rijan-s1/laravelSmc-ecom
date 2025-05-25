@@ -7,6 +7,17 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+    <div class="bg-blue-800 text-white flex justify-end py-1 px-20">
+        @auth
+        <div class="flex items-center gap-2">
+            <span class="text-sm font-bold">Hi, {{auth()->user()->name}}</span>
+
+        </div>
+        @else
+        <a href="{{route('login')}}" class="text-sm font-bold">Login</a>
+        @endauth
+
+    </div>
    <nav class="shadow px-20 py-4 flex justify-between items-center">
     <img src="https://smc.edu.np/wp-content/uploads/2023/11/smc-logo-circle-150x150.png" alt="" class="h-20">
     <div class="flex gap-4">
