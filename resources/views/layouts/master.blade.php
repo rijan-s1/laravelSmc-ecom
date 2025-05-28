@@ -11,7 +11,10 @@
         @auth
         <div class="flex items-center gap-2">
             <span class="text-sm font-bold">Hi, {{auth()->user()->name}}</span>
-
+            <form action="{{route('logout')}}" method="POST" class="flex items-center gap-2">
+                @csrf
+                <button type="submit" >Logout</button>
+            </form>
         </div>
         @else
         <a href="{{route('login')}}" class="text-sm font-bold">Login</a>
@@ -28,7 +31,7 @@
         @foreach ($categories as $category)
 <a href="{{route('categoryproducts',$category->id)}}" class="text-gray-600">{{$category->name}}</a>
         @endforeach
-        <a href="{{route('login')}}" class="text-gray-600">Login</a>
+        
     </div>
    </nav>
    <div class="mx-12">@yield('content')</div>
