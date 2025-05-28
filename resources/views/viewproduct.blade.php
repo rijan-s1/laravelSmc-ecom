@@ -118,7 +118,22 @@
                             </svg>
                             Wishlist
                         </button>
+
                     </div>
+                    <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
+                        <input type="hidden" id="amount" name="amount" value="{{$product->discounted_price==''?$product->price:$product->discounted_price}}" required>
+                        <input type="hidden" id="tax_amount" name="tax_amount" value ="0" required>
+                        <input type="hidden" id="total_amount" name="total_amount" value="{{$product->discounted_price==''?$product->price:$product->discounted_price}}" required>
+                        <input type="hidden" id="transaction_uuid" name="transaction_uuid" value="241028" required>
+                        <input type="hidden" id="product_code" name="product_code" value ="EPAYTEST" required>
+                        <input type="hidden" id="product_service_charge" name="product_service_charge" value="0" required>
+                        <input type="hidden" id="product_delivery_charge" name="product_delivery_charge" value="0" required>
+                        <input type="hidden" id="success_url" name="success_url" value="https://developer.esewa.com.np/success" required>
+                        <input type="hidden" id="failure_url" name="failure_url" value="https://developer.esewa.com.np/failure" required>
+                        <input type="hidden" id="signed_field_names" name="signed_field_names" value="total_amount,transaction_uuid,product_code" required>
+                        <input type="hidden" id="signature" name="signature" value="i94zsd3oXF6ZsSr/kGqT4sSzYQzjj1W/waxjWyRwaME=" required>
+                        <input value="Pay With Esewa" class="px-2 py-1 bg-green-500 mt-4 text-white rounded cursor-pointer" type="submit">
+                        </form>
                 </div>
             </div>
         </div>
@@ -156,6 +171,18 @@
         </div>
         @endif
     </div>
+    @php
+       $totalprice= $product->discounted_price==''?$product->price:$product->discounted_price;
+        $transaction_uuid = time();
+        $secret_key ='8gBm/:&EnhH.1/q';
+        $message= "total_amount=$totalprice,transaction_uuid=$transaction_uuid,product_code=EPAYTEST";
+        $sign = hash_hmac('sha256', $message, $secret_key,true);
+        $signature = base64_encode($sign);
+        @endphp
+       <script>
+        document.getElementById('transaction_uuid').value = "{{ $transaction_uuid }}";
+        document.getElementById('signature').value = "{{ $signature }}";
+       </script>
     <script>
         let stock = {{ $product->stock }};
         function increment(){
