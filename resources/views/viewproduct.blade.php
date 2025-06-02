@@ -96,17 +96,18 @@
                         </div>
                     </div>
 
-                    <div class="py-2 flex items-center">
-                        <button onclick="decrement()" class="bg-gray-100 p-2 w-10 rounded">-</button>
-                        <input  id ="quantity" type="number" value="1" min="1" max="{{ $product->stock }}" class="border border-gray-300 p-2 rounded w-16 text-center mx-2" readonly>
-                        <button onclick="increment()" class="bg-gray-100 p-2 w-10 rounded">+</button>
-                    </div>
+
 
                     <!-- Call to Action Section -->
                     <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mt-6">
 
                         <form action="{{route('cart.store')}}" method="POST">
                             @csrf
+                            <div class="py-2 flex items-center">
+                                <div onclick="decrement()" class="bg-gray-100 p-2 w-10 rounded cursor-pointer">-</div>
+                                <input  id ="quantity" name="quantity" type="number" value="1" min="1" max="{{ $product->stock }}" class="border border-gray-300 p-2 rounded w-16 text-center mx-2" readonly>
+                                <div onclick="increment()" class="bg-gray-100 p-2 w-10 rounded cursor-pointer">+</div>
+                            </div>
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
                             {{ $product->stock <= 0 ? 'disabled' : '' }}>
@@ -117,12 +118,12 @@
                         </button>
                         </form>
 
-                        <button class="flex-1 sm:flex-none border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 font-medium py-3 px-6 rounded-lg shadow-sm transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">
+                        {{-- <div><button class="flex-1 sm:flex-none border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 font-medium py-3 px-6 rounded-lg shadow-sm transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                             </svg>
                             Wishlist
-                        </button>
+                        </button></div> --}}
 
                     </div>
                     <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">

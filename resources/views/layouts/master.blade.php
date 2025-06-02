@@ -7,6 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+    @include('layouts.alert')
     <div class="bg-blue-800 text-white flex justify-end py-1 px-20">
         @auth
         <div class="flex items-center gap-2">
@@ -31,7 +32,7 @@
         @foreach ($categories as $category)
 <a href="{{route('categoryproducts',$category->id)}}" class="text-gray-600">{{$category->name}}</a>
         @endforeach
-        
+
     </div>
    </nav>
    <div class="mx-12">@yield('content')</div>
